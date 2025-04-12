@@ -11,7 +11,7 @@ import SportEventsPage from './pages/SportEventsPage';
 import TicketBookingPage from './pages/TicketBookingPage';
 import PaymentPage from './pages/PaymentPage';
 import MyTicketsPage from './pages/MyTicketsPage';
-
+import ReceivePage from './pages/ReceivePage';
 // Components
 import Navbar from './components/Navbar';
 
@@ -28,6 +28,7 @@ function App() {
           <Route path="/book/:matchId" element={<TicketBookingPage />} />
           <Route path="/payment/:matchId/:quantity" element={<PaymentPage />} />
           <Route path="/my-tickets" element={<MyTicketsPage />} />
+          <Route path="/receive" element={<ReceivePage />} />
           {/* Add a catch-all route to redirect to dashboard */}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
