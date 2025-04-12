@@ -20,6 +20,10 @@ const Navbar = () => {
     navigate('/');
   };
 
+  const handleReceiveClick = () => {
+    navigate('/receive');
+  };
+
   return (
     <nav className="bg-white shadow-md py-4">
       <div className="container mx-auto flex justify-between items-center px-4">
@@ -38,9 +42,22 @@ const Navbar = () => {
               <Link to="/my-tickets" className="text-gray-700 hover:text-primary">
                 My Tickets
               </Link>
-              <div className="text-sm flex items-center">
-                <span className="text-gray-600 mr-2">{balance ? `${parseFloat(balance).toFixed(4)} ETH` : ''}</span>
-                <span className="text-gray-600">{formatAddress(account)}</span>
+              <div className="bg-gray-100 rounded-full px-4 py-2 flex items-center space-x-2">
+                <div className="flex flex-col">
+                  <span className="text-gray-600 text-xs">Balance</span>
+                  <span className="font-semibold text-gray-800">{balance ? `${parseFloat(balance).toFixed(4)} ETH` : '0.0000 ETH'}</span>
+                </div>
+                <div className="h-8 w-px bg-gray-300"></div>
+                <div className="flex flex-col">
+                  <span className="text-gray-600 text-xs">Address</span>
+                  <span className="font-mono text-gray-800">{formatAddress(account)}</span>
+                </div>
+                <button
+                  onClick={handleReceiveClick}
+                  className="ml-2 bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600 text-sm"
+                >
+                  Receive
+                </button>
               </div>
               <button
                 onClick={handleDisconnect}
